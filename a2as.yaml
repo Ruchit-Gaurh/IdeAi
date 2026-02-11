@@ -1,0 +1,371 @@
+manifest:
+  version: "0.1.3"
+  schema: https://a2as.org/cert/schema
+  subject:
+    name: ruchit-gaurh/ideai
+    source: https://github.com/ruchit-gaurh/ideai
+    branch: main
+    commit: "d373a3da"
+    scope: [ideai/agent.py, ideai/prompt.py]
+  issued:
+    by: A2AS.org
+    at: '2026-02-11T16:46:24Z'
+    url: https://a2as.org/certified/agents/ruchit-gaurh/ideai
+  signatures:
+    digest: sha256:A8BriPPO_FlJW1osLDE5YjV2GP8VrEtVQyZ0bWlWTzQ
+    key: ed25519:MXwVn75gOliH0rpXVZGo2W0Ivh9ZVY030tyg716tunE
+    sig: ed25519:ohKBALcxLWfTwaIlOs2ELZ1Un2TbsauuhQ7CpzYcQCvW6l8Za6POupn1QJqQXmu_HjvPhtFhyyyiWm6pYxn1BA
+
+agents:
+  agent:
+    type: instance
+    models: [gemini-2.0-flash-001]
+    tools: [initialize_driver, go_to_url, search_google, extract_google_search_results, perform_human_scrolling, click_element_with_text,
+      click_link_by_url_pattern, enter_text_into_element, press_enter, find_element_with_text, scroll_down, scroll_to_bottom,
+      wait_for_element, get_page_title, get_page_source, extract_page_content, research_business_niche, generate_business_ideas,
+      analyze_business_data, extract_website_data, take_screenshot, load_artifacts_tool]
+    params:
+      name: business_research_agent
+      description: Research business niches and provide detailed analysis
+      instruction: [You are a professional business niche research agent that helps entrepreneurs evaluate business ideas
+          and opportunities., <Welcome>, Begin by introducing yourself as a Business Research Assistant that specializes in
+          analyzing market opportunities and business niches. Ask the user for their name to personalize the experience.,
+        </Welcome>, <Initial Assessment>, '1. Request the following information from the user:', '- Interest area (what they''re
+          passionate about)', '- Target industry or market', '- Available budget range (startup capital)', '- Current skill
+          level (beginner/intermediate/advanced)', 2. Generate 3 detailed business ideas based on these parameters, 3. Allow
+          the user to select which idea they want to research further or suggest their own, </Initial Assessment>, <Research
+          Process>, 'When researching a business niche:', 1. Conduct thorough Google searches using strategic keywords, 2.
+          Browse all the websites and urls like a human would use scroll function to scroll through pages, '2. Visit 100+
+          websites from search results including:', '- Industry reports and analysis', '- Competitor websites', '- Market
+          statistics and forecasts', '- Business forums and discussions', '3. For each website:', '- Take screenshots for
+          visual reference', '- Extract key data points and insights', '- Analyze business models and strategies', '- Identify
+          market positioning and trends', 4. Compile findings into a comprehensive analysis, </Research Process>, <Data Collection
+          Focus>, 'When analyzing websites, prioritize extracting:', '- Market size figures and growth rates', '- Startup
+          costs and operational expenses', '- Revenue models and profit margins', '- Customer acquisition strategies', '-
+          Competitor strengths and weaknesses', '- Technology and innovation trends', '- Regulatory considerations', '- Expert
+          opinions and forecasts', '- Any other information you find necessary', </Data Collection Focus>, <Analysis Framework>,
+        'Present your research findings in this structured format and it should be the most detailed report ever known to
+          mankind:', '## MARKET ANALYSIS', '- Market Size: [size in INR with source]', '- Annual Growth Rate: [% with timeframe]',
+        '- Market Stage: [emerging/growing/mature/declining]', '- Geographic Hotspots: [regions with highest activity]', '-
+          Above are just few example add atleast 10 more fields like this and also descriptions', '## COMPETITIVE LANDSCAPE',
+        '- Market Concentration: [high/medium/low with explanation]', '- Key Players: [list major competitors with brief descriptions]',
+        '- Entry Barriers: [specific challenges for new entrants]', '- Differentiation Factors: [how businesses compete]',
+        '- Analyze this as deeply as possible', '- Give all the data like price of products of all the competitors', '- Above
+          are just few example add atleast 10 more fields like this and also descriptions', '## FINANCIAL PROFILE', '- Startup
+          Investment: [typical range with breakdown]', '- Operating Costs: [major expense categories]', '- Revenue Potential:
+          [first-year and maturity estimates]', '- Profit Margins: [industry average percentages]', '- Break-even Timeline:
+          [typical timeframe]', '## TARGET CUSTOMERS', '- Demographics: [detailed customer profile]', '- Pain Points: [problems
+          they need solved]', '- Buying Behavior: [how they make purchase decisions]', '- Customer Lifetime Value: [estimated
+          long-term value]', '## TECHNOLOGY & OPERATIONS', '- Essential Tools: [required software/equipment]', '- Operational
+          Model: [how the business functions day-to-day]', '- Scalability Factors: [what enables/limits growth]', '- Innovation
+          Opportunities: [emerging tech or approaches]', '## RISKS & CHALLENGES', '- Market Risks: [external threats and uncertainties]',
+        '- Operational Challenges: [internal execution difficulties]', '- Regulatory Considerations: [legal and compliance
+          factors]', '- Mitigation Strategies: [how to address key risks]', '## OPPORTUNITY ASSESSMENT', '- Overall Score:
+          [1-10 rating with justification]', '- Strengths: [key positive factors]', '- Weaknesses: [main drawbacks]', '- Time
+          Sensitivity: [urgency of opportunity]', '- Success Requirements: [what''s needed to succeed]', '## RECOMMENDATION',
+        '- Go/No-Go Advice: [clear recommendation]', '- Entry Strategy: [suggested approach]', '- Key Success Metrics: [how
+          to measure progress]', '- Next Steps: [immediate actions to take]', <Excellence Standards>, 'Follow these principles
+          to deliver exceptional research:', '1. EVIDENCE-BASED: Back all claims with data from your research', '2. BALANCED:
+          Present both opportunities and challenges fairly', '3. ACTIONABLE: Provide practical guidance, not just information',
+        '4. SPECIFIC: Avoid generic advice; tailor insights to this niche', '5. REALISTIC: Acknowledge limitations in the
+          data/research', '6. COMPREHENSIVE: Cover all critical aspects of the business opportunity', </Excellence Standards>,
+        <User Interaction Guidelines>, '- Don''t just keep on talking with the user start the browser and get ready to search
+          as soon as you get the desired details', '- Ask clarifying questions when user inputs are vague', '- Provide progress
+          updates during research phases', '- Don''t keep asking user questions keep performing actions according to you',
+        '- Once the browser process starts you should not take a single input from user apart from captcha one', '- If you
+          ever want to ask user whether to continue always select continue on your own don''t ask user', '- Only stop after
+          you have all the information there is to find on websites and google', '- Summarize key findings before presenting
+          full details', '- Offer to elaborate on specific sections of interest', '- Conclude with next steps and follow-up
+          questions', </User Interaction Guidelines>, <Error Handling>, 'If you encounter challenges during research:', '-
+          Website access issues: Try alternative sources', '- Limited data: Acknowledge gaps and provide best estimates',
+        '- Contradictory information: Present multiple perspectives', '- Technical failures: Gracefully recover and continue',
+        '- Always be transparent about limitations in your analysis', '- If google captcha verification is needed then ask
+          user to do the verification', </Error Handling>, <Output Formatting>, '- Use descriptive headings and subheadings',
+        '- Include bullet points for easy scanning', '- Bold key statistics and insights', '- Use markdown tables for comparative
+          data', '- Incorporate icons where appropriate: 📈 📉 ⚠️ 💰 🔍 🚀', '- Format financial figures consistently (e.g., 10K
+          INR, 1.2M INR)', '- Include source references when citing specific data', </Output Formatting>]
+
+models:
+  gemini-2.0-flash-001:
+    type: literal
+    agents: [agent]
+
+tools:
+  analyze_business_data:
+    type: function
+    agents: [agent]
+    params:
+      description: Analyzes collected business data and provides insights.
+  click_element_with_text:
+    type: function
+    agents: [agent]
+    params:
+      description: Clicks on an element containing the specified text.
+  click_link_by_url_pattern:
+    type: function
+    agents: [agent]
+    params:
+      description: Clicks a link that contains the given URL pattern.
+  enter_text_into_element:
+    type: function
+    agents: [agent]
+    params:
+      description: |-
+        Enters text into an element identified by the given selector.
+
+        Args:
+            selector: The element selector (id, name, css, xpath)
+            text_to_enter: The text to enter
+            selector_type: Type of selector (id, name, css, xpath)
+  extract_google_search_results:
+    type: function
+    agents: [agent]
+    params:
+      description: Extracts search results from Google search page with enhanced robustness.
+  extract_page_content:
+    type: function
+    agents: [agent]
+    params:
+      description: Extracts relevant content from the current page.
+  extract_website_data:
+    type: function
+    agents: [agent]
+    params:
+      description: Visits a website and extracts relevant business data.
+  find_element_with_text:
+    type: function
+    agents: [agent]
+    params:
+      description: Finds an element on the page with the given text.
+  generate_business_ideas:
+    type: function
+    agents: [agent]
+    params:
+      description: Generates business ideas based on user inputs.
+  get_page_source:
+    type: function
+    agents: [agent]
+    params:
+      description: Returns the current page source (truncated to prevent token overflow).
+  get_page_title:
+    type: function
+    agents: [agent]
+    params:
+      description: Returns the title of the current page.
+  go_to_url:
+    type: function
+    agents: [agent]
+    params:
+      description: Navigates the browser to the given URL with retry logic.
+  initialize_driver:
+    type: function
+    agents: [agent]
+    params:
+      description: Initialize the browser driver if not already initialized.
+  load_artifacts_tool:
+    type: function
+    agents: [agent]
+  perform_human_scrolling:
+    type: function
+    agents: [agent]
+    params:
+      description: Simulates human-like scrolling behavior to load page content dynamically
+  press_enter:
+    type: function
+    agents: [agent]
+    params:
+      description: Presses the Enter key on the active element.
+  research_business_niche:
+    type: function
+    agents: [agent]
+    params:
+      description: Orchestrates the entire business niche research process.
+  scroll_down:
+    type: function
+    agents: [agent]
+    params:
+      description: Scrolls down the page by the specified number of pixels.
+  scroll_to_bottom:
+    type: function
+    agents: [agent]
+    params:
+      description: Scrolls to the bottom of the page gradually.
+  search_google:
+    type: function
+    agents: [agent]
+    params:
+      description: Searches Google for the specified query.
+  take_screenshot:
+    type: function
+    agents: [agent]
+    params:
+      description: Takes a screenshot and saves it with a timestamp.
+  wait_for_element:
+    type: function
+    agents: [agent]
+    params:
+      description: Waits for an element to be present on the page.
+
+imports:
+  Agent: google.adk.agents.llm_agent.Agent
+  agent: agent.agent
+  Any: typing.Any
+  By: selenium.webdriver.common.by.By
+  ChromeDriverManager: webdriver_manager.chrome.ChromeDriverManager
+  datetime: datetime.datetime
+  Dict: typing.Dict
+  EC: selenium.webdriver.support.expected_conditions
+  ElementClickInterceptedException: selenium.common.exceptions.ElementClickInterceptedException
+  ElementNotInteractableException: selenium.common.exceptions.ElementNotInteractableException
+  Image: PIL.Image
+  json: json
+  Keys: selenium.webdriver.common.keys.Keys
+  List: typing.List
+  load_artifacts_tool: google.adk.tools.load_artifacts_tool.load_artifacts_tool
+  NoSuchElementException: selenium.common.exceptions.NoSuchElementException
+  Optional: typing.Optional
+  Options: selenium.webdriver.chrome.options.Options
+  os: os
+  parse: urllib.parse
+  random: random
+  re: re
+  SEARCH_RESULT_AGENT_PROMPT: prompt.SEARCH_RESULT_AGENT_PROMPT
+  selenium: selenium
+  Service: selenium.webdriver.chrome.service.Service
+  StaleElementReferenceException: selenium.common.exceptions.StaleElementReferenceException
+  time: time
+  TimeoutException: selenium.common.exceptions.TimeoutException
+  ToolContext: google.adk.tools.tool_context.ToolContext
+  types: google.genai.types
+  warnings: warnings
+  WebDriverException: selenium.common.exceptions.WebDriverException
+  WebDriverWait: selenium.webdriver.support.ui.WebDriverWait
+
+functions:
+  analyze_business_data:
+    type: sync
+    module: ideai.agent
+    args: [data_list]
+    params:
+      returns: str
+  click_element_with_text:
+    type: sync
+    module: ideai.agent
+    args: [text]
+    params:
+      returns: str
+  click_link_by_url_pattern:
+    type: sync
+    module: ideai.agent
+    args: [pattern]
+    params:
+      returns: str
+  enter_text_into_element:
+    type: sync
+    module: ideai.agent
+    args: [selector, text_to_enter, selector_type]
+    params:
+      returns: str
+  extract_google_search_results:
+    type: sync
+    module: ideai.agent
+    params:
+      returns: str
+  extract_page_content:
+    type: sync
+    module: ideai.agent
+    params:
+      returns: dict
+  extract_website_data:
+    type: sync
+    module: ideai.agent
+    args: [url]
+    params:
+      returns: dict
+  find_element_with_text:
+    type: sync
+    module: ideai.agent
+    args: [text]
+    params:
+      returns: str
+  generate_business_ideas:
+    type: sync
+    module: ideai.agent
+    args: [interest, industry, budget, skill_level]
+    params:
+      returns: str
+  get_page_source:
+    type: sync
+    module: ideai.agent
+    params:
+      returns: str
+  get_page_title:
+    type: sync
+    module: ideai.agent
+    params:
+      returns: str
+  go_to_url:
+    type: sync
+    module: ideai.agent
+    args: [url]
+    params:
+      returns: str
+  initialize_driver:
+    type: sync
+    module: ideai.agent
+  perform_human_scrolling:
+    type: sync
+    module: ideai.agent
+  press_enter:
+    type: sync
+    module: ideai.agent
+    params:
+      returns: str
+  research_business_niche:
+    type: sync
+    module: ideai.agent
+    args: [niche, tool_context]
+    params:
+      returns: str
+  scroll_down:
+    type: sync
+    module: ideai.agent
+    args: [pixels]
+    params:
+      returns: str
+  scroll_to_bottom:
+    type: sync
+    module: ideai.agent
+    params:
+      returns: str
+  search_google:
+    type: sync
+    module: ideai.agent
+    args: [query]
+    params:
+      returns: str
+  setup_chrome_options:
+    type: sync
+    module: ideai.agent
+  take_screenshot:
+    type: sync
+    module: ideai.agent
+    params:
+      returns: dict
+  wait_for_element:
+    type: sync
+    module: ideai.agent
+    args: [selector, selector_type, timeout]
+    params:
+      returns: str
+
+networks:
+  www.google.com:
+    type: api
+    actions: [GET]
+    urls: ['/{...}']
+    protocols: [https]
+    ports: ["443"]
+    params:
+      pattern: https://www.google.com/search?hl=en&q={formatted_query}
+      caller: [search_google]
